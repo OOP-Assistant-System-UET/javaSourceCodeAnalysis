@@ -12,4 +12,12 @@
     <servlet-name>home jsp</servlet-name>
     <url-pattern>/home</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>diagram jsp</servlet-name>
+    <jsp-file>/diagram.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>diagram jsp</servlet-name>
+    <url-pattern>/diagram</url-pattern>
+  </servlet-mapping>
 </web-app>

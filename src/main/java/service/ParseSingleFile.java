@@ -1,5 +1,6 @@
 package service;
 
+import model.ClassDecration;
 import org.eclipse.jdt.core.dom.*;
 
 import java.io.File;

@@ -1,5 +1,7 @@
 package service;
 
+import model.ClassDecration;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,7 +21,7 @@ public class ParsePackage {
         //System.out.println(rootDir.listFiles());
         File[] files = root.listFiles ();
         String filePath = null;
-
+        int num = 0;
         for (File f : files ) {
             filePath = f.getAbsolutePath();
 
@@ -27,15 +29,20 @@ public class ParsePackage {
                 ParseSingleFile parseSingleFile = new ParseSingleFile();
                 parseSingleFile.parseFile(readFileToString(filePath));
                 for (ClassDecration cd : parseSingleFile.getListClasses()) {
+                    cd.setKey(num);
                     this.classes.add(cd);
+                    num ++;
                 }
             }
         }
     }
-
+    public ArrayList<ClassDecration> getClasses(){
+        return classes;
+    }
     public void printInfor() {
         for (ClassDecration cd : this.classes) {
             cd.printInfor();
+            System.out.println("---------");
         }
     }
 

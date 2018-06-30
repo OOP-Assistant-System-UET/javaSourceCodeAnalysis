@@ -1,12 +1,14 @@
-package service;
+package model;
 
+import model.Method;
+import model.Property;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 
 import java.util.ArrayList;
 import java.util.List;
-
-public class ClassDecration {
+public class ClassDecration{
+    private int key;
     private String name;
     private boolean isPublic = false;
     private boolean isInterface = false;
@@ -14,11 +16,18 @@ public class ClassDecration {
     private ArrayList<Property> properties ;
     private ArrayList<Method> methods ;
     public ClassDecration() {
+        key = -1;
         name = "empty";
         isPublic = false;
         properties = new ArrayList<Property>();
         methods = new ArrayList<Method>();
 
+    }
+    public void setKey(int key){
+        this.key = key;
+    }
+    public int getKey(){
+        return this.key;
     }
 
     public boolean isInterface() {
@@ -88,7 +97,7 @@ public class ClassDecration {
         }
     }
     public void printInfor() {
-        System.out.println("Class: " + getName() + "  Public: " + isPublic);
+        System.out.println("Class: " + getName() + "  Public: " + isPublic +"Key: " + key);
         for (int i = 0; i < properties.size(); i++) {
             this.properties.get(i).printInfor();
         }
