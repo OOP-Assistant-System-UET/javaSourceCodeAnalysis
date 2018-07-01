@@ -96,26 +96,14 @@ public class ParsePackage {
     public ArrayList<ClassDecration> getClasses(){
         return classes;
     }
+
     public void printInfor() {
         for (ClassDecration cd : this.classes) {
             cd.printInfor();
             System.out.println("---------");
         }
-        showRelationships();
-
     }
 
-    public void showRelationships() {
-        if (this.relationships.size() == 0) {
-            System.out.println("no relationship");
-        }
-        else {
-            for (Relationship r : this.relationships) {
-                r.printInfor();
-            }
-        }
-
-    }
 
     public static void main(String[] args) throws IOException {
         ParsePackage p = new ParsePackage();

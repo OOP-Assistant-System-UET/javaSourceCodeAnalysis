@@ -9,12 +9,13 @@ import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
+import model.RelationshipList;
 import org.json.simple.JSONArray;
 /*import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;*/
 
-public class PackageJson {
+public class GetJsonObject {
     public static String getPackageJSon(String packagePath) throws IOException {
         ParsePackage pp = new ParsePackage();
         pp.parseFilesInPackage(packagePath);
@@ -25,16 +26,37 @@ public class PackageJson {
         return ppJson;
     }
 
+    public static String getRelationshipListJson(RelationshipList rl) {
+        Gson gson = new Gson();
+        String rlJson = gson.toJson(rl);
+        /*RelationshipList rl2 = gson.fromJson(rlJson,RelationshipList.class);
+        rl2.showRelationships();*/
+        return rlJson;
+
+    }
     public static void main(String[] args) throws IOException {
 
         //link package
-        String packagePath = "C:\\Users\\Nguyen Hieu\\IdeaProjects\\jlickr\\src\\main\\java\\com\\jcia\\jlickr\\dao";
-        String packageJSon = PackageJson.getPackageJSon(packagePath);
+        String packagePath = "C:\\Users\\Admin\\IdeaProjects\\studyJDT\\src\\main\\java";
+        String packageJSon = GetJsonObject.getPackageJSon(packagePath);
         System.out.println(packageJSon);
 
-        //Lay doi tuong java tu JSon string
+
+        //thu Lay doi tuong  ParsePackage java tu JSon string de kiem tra
         Gson gson = new Gson();
         ParsePackage pp = gson.fromJson(packageJSon,ParsePackage.class);
         pp.printInfor();
+
+        //Lay doi tuong RelationshipJson tu ParsePackage
+        RelationshipList rl = new RelationshipList();
+        rl.getRelationshipListInPackage(pp);
+        String relationshipsJson = GetJsonObject.getRelationshipListJson(rl);
+        System.out.println(relationshipsJson);
+
+        //Lay doi tuong RelationshipList tu json va kiem tra
+        RelationshipList rl2 = gson.fromJson(relationshipsJson,RelationshipList.class);
+        rl2.showRelationships();
+
+
     }
 }
