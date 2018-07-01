@@ -3,7 +3,7 @@ package model;
 public class Relationship {
     private int from;
     private int to;
-    private String type;
+    private String relationship;
 
     public int getFrom() {
         return from;
@@ -21,15 +21,15 @@ public class Relationship {
         this.to = to;
     }
 
-    public String getType() {
-        return type;
+    public String getRelationship() {
+        return relationship;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setRelationship(String relationship) {
+        this.relationship = relationship;
     }
 
     public void printInfor() {
-        System.out.println("From: " + this.from + "  To: " + this.to + " Type:" + type);
+        System.out.println("From: " + this.from + "  To: " + this.to + " Relationship:" + relationship);
     }
 }

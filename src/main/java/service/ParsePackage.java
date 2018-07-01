@@ -60,7 +60,7 @@ public class ParsePackage {
                     Relationship r = new Relationship();
                     r.setFrom(cd.getKey());
                     r.setTo(keySuperClass);
-                    r.setType("extends");
+                    r.setRelationship("extends");
                     relationshipList.add(r);
                 }
             }
@@ -74,8 +74,8 @@ public class ParsePackage {
                         Relationship r = new Relationship();
                         r.setFrom(cd.getKey());
                         r.setTo(keySuperInterface);
-                        if ( cd.isInterface() == false ) r.setType("implements");
-                        else r.setType("extends");
+                        if ( cd.getScope() == "interface" ) r.setRelationship("implements");
+                        else r.setRelationship("extends");
                         relationshipList.add(r);
                     }
                 }

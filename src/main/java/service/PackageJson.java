@@ -28,7 +28,7 @@ public class PackageJson {
     public static void main(String[] args) throws IOException {
 
         //link package
-        String packagePath = "C:\\Users\\Admin\\IdeaProjects\\studyJDT\\src\\main\\java";
+        String packagePath = "C:\\Users\\Nguyen Hieu\\IdeaProjects\\jlickr\\src\\main\\java\\com\\jcia\\jlickr\\dao";
         String packageJSon = PackageJson.getPackageJSon(packagePath);
         System.out.println(packageJSon);
 

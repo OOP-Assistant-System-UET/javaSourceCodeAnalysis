@@ -7,6 +7,14 @@
           <element id="module-output" name="javaSourceCodeAnalysis" />
         </element>
         <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.0.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.0.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.0.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:5.0.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:5.0.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.0.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.0.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:5.0.2.RELEASE" />
           <element id="library" level="project" name="Maven: org.eclipse.jdt:org.eclipse.jdt.core:3.10.0" />
           <element id="library" level="project" name="Maven: org.eclipse.core:org.eclipse.core.resources:3.7.100" />
           <element id="library" level="project" name="Maven: org.eclipse.core:org.eclipse.core.expressions:3.4.300" />

@@ -43,7 +43,7 @@ public class ParseSingleFile {
         cu.accept(new ASTVisitor() {
             public boolean visit(TypeDeclaration node) {
                 ClassDecration cd = new ClassDecration();
-                if (node.isInterface() == true) cd.setInterface(true);
+                if (node.isInterface() == true) cd.setScope("interface");
 
                 //lay ten
                 String name = node.getName().getIdentifier();

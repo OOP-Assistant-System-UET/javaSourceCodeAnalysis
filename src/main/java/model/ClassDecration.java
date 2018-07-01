@@ -11,7 +11,7 @@ public class ClassDecration{
     private int key;
     private String name;
     private boolean isPublic = false;
-    private boolean isInterface = false;
+    private String scope = null;
     private List<String> visibilities;
     private ArrayList<Property> properties ;
     private ArrayList<Method> methods ;
@@ -50,12 +50,12 @@ public class ClassDecration{
         return this.key;
     }
 
-    public boolean isInterface() {
-        return isInterface;
+    public String getScope() {
+        return scope;
     }
 
-    public void setInterface(boolean anInterface) {
-        isInterface = anInterface;
+    public void setScope(String scope) {
+        this.scope = scope;
     }
 
     public ArrayList<Property> getProperties() {

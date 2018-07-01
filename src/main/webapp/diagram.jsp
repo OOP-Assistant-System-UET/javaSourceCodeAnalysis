@@ -202,7 +202,7 @@
                 );
 
             // setup a few example class nodes and relationships
-            var nodedata = [
+            /*var nodedata = [
                 {
                     key: 1,
                     name: "BankAccount",scope:"interface",
@@ -260,7 +260,19 @@
                         { name: "students", type: "List", visibility: "public" }
                     ]
                 }
-            ];
+            ];*/
+            var request = new XMLHttpRequest();
+
+            request.open('GET', 'node.json', true);
+            var nodedata = JSON.parse(this.response);
+            /*request.onload = function () {
+
+                nodedata = JSON.parse(this.response);
+
+            };*/
+
+            request.send();
+
             var linkdata = [
                 { from: 12, to: 11, relationship: "extends"},
                 { from: 13, to: 11, relationship: "extends" },
