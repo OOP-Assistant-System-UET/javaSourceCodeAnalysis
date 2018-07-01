@@ -44,8 +44,12 @@ public class ParseSingleFile {
             public boolean visit(TypeDeclaration node) {
                 ClassDecration cd = new ClassDecration();
                 if (node.isInterface() == true) cd.setInterface(true);
+
+                //lay ten
                 String name = node.getName().getIdentifier();
                 cd.setName(name);
+
+                //lay visibility
                 cd.setPublic(false);
                 List <Modifier> modifiers = node.modifiers();
                 if (modifiers.size()==0) {
@@ -59,10 +63,35 @@ public class ParseSingleFile {
                         }
                     }
                 }
+
+                //lay cac properties
                 FieldDeclaration[] fieldList = node.getFields();
-                MethodDeclaration[] methodList = node.getMethods();
                 cd.setPropertyInfor(fieldList);
+                //lay cac methods
+                MethodDeclaration[] methodList = node.getMethods();
                 cd.setMethodInfor(methodList);
+
+                //lay superClass
+                Type superClassType = node.getSuperclassType();
+                if (superClassType != null) {
+                    String superClassName = superClassType.toString();
+                    cd.setSuperClassName(superClassName);
+                }
+
+                //lay danh sach cac superInterface
+                List superInterfaceList =  node.superInterfaceTypes();
+                if (superInterfaceList.size() > 0) {
+                    ArrayList<String> interfaceNameList = new ArrayList<String>();
+                    for (Object o : superInterfaceList) {
+                        if (o instanceof SimpleType) {
+                            SimpleType temp = (SimpleType) o;
+                            Name interfaceName = temp.getName();
+                            interfaceNameList.add(interfaceName.toString());
+                        }
+                    }
+                    cd.setSuperInterfaceName(interfaceNameList);
+                }
+
                 listClasses.add(cd);
                 numberClass++;
                 return super.visit(node);

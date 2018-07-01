@@ -15,14 +15,34 @@ public class ClassDecration{
     private List<String> visibilities;
     private ArrayList<Property> properties ;
     private ArrayList<Method> methods ;
+    private String superClassName;
+    private ArrayList<String> superInterfaceName;
     public ClassDecration() {
         key = -1;
         name = "empty";
         isPublic = false;
         properties = new ArrayList<Property>();
         methods = new ArrayList<Method>();
-
+        visibilities = new ArrayList<String>();
+        superInterfaceName = new ArrayList<String>();
     }
+
+    public String getSuperClassName() {
+        return superClassName;
+    }
+
+    public void setSuperClassName(String superClassName) {
+        this.superClassName = superClassName;
+    }
+
+    public ArrayList<String> getSuperInterfaceName() {
+        return superInterfaceName;
+    }
+
+    public void setSuperInterfaceName(ArrayList<String> superInterfaceName) {
+        this.superInterfaceName = superInterfaceName;
+    }
+
     public void setKey(int key){
         this.key = key;
     }
@@ -97,12 +117,30 @@ public class ClassDecration{
         }
     }
     public void printInfor() {
-        System.out.println("Class: " + getName() + "  Public: " + isPublic +"Key: " + key);
+        /*System.out.println("Class: " + getName() + "  Public: " + isPublic +"Key: " + key);
         for (int i = 0; i < properties.size(); i++) {
             this.properties.get(i).printInfor();
         }
         for (int i = 0; i < methods.size(); i++) {
             this.methods.get(i).printInfor();
+        }*/
+        System.out.println("className: " + this.name + "  Key: " + this.key);
+        if (this.superClassName != null) {
+            System.out.println("extend: " + this.superClassName);
+        }
+        else {
+            System.out.println("extend: empty");
+        }
+
+        if (this.superInterfaceName.size() > 0 ) {
+            System.out.print("implements: ");
+            for (String s : this.superInterfaceName) {
+                System.out.print(s + "  ");
+            }
+            System.out.println();
+        }
+        else {
+            System.out.println("implement: empty");
         }
     }
 
