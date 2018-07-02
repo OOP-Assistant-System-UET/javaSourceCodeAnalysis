@@ -47,7 +47,7 @@ public class ParsePackage {
                 }
             }
         }
-//        this.relationships = setupRelationships();
+        this.relationships = setupRelationships();
     }
     //thiet lap cac relationship tu cac class
     public ArrayList<Relationship> setupRelationships() {
@@ -67,15 +67,15 @@ public class ParsePackage {
 
 
             //lay relationship kieu implements;
-            if (cd.getSuperInterfaceName().size() > 0) {
+            if (!cd.getSuperInterfaceName().isEmpty()) {
                 for (String s : cd.getSuperInterfaceName()) {
                     int keySuperInterface = this.findKeyByName(s);
                     if (keySuperInterface != -1) {
                         Relationship r = new Relationship();
                         r.setFrom(cd.getKey());
                         r.setTo(keySuperInterface);
-                        if ( cd.getScope() == "interface" ) r.setRelationship("implements");
-                        else r.setRelationship("extends");
+                        if (cd.getScope().equals("interface")) r.setRelationship("extends");
+                        else r.setRelationship("implements");
                         relationshipList.add(r);
                     }
                 }
@@ -107,7 +107,7 @@ public class ParsePackage {
 
     public static void main(String[] args) throws IOException {
         ParsePackage p = new ParsePackage();
-        String packagePath = "C:\\Users\\Nguyen Hieu\\IdeaProjects\\javaSourceCodeAnalysis\\src\\main\\java\\model";
+        String packagePath = "C:\\Users\\Admin\\IdeaProjects\\studyJDT\\src\\main\\java";
         p.parseFilesInPackage(packagePath);
         p.printInfor();
         for (Relationship cd : p.relationships) {

@@ -44,6 +44,7 @@ public class ParseSingleFile {
             public boolean visit(TypeDeclaration node) {
                 ClassDecration cd = new ClassDecration();
                 if (node.isInterface() == true) cd.setScope("interface");
+                else cd.setScope("class");
 
                 //lay ten
                 String name = node.getName().getIdentifier();
