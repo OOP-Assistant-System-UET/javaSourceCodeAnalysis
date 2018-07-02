@@ -15,7 +15,7 @@ public class DiagramController {
     @RequestMapping(value="node",  method = RequestMethod.GET)
     @ResponseBody
     public String response() throws IOException {
-        String packagePath = "C:\\Users\\Nguyen Hieu\\IdeaProjects\\jlickr\\src\\main\\java\\com\\jcia\\jlickr\\dao";
+        String packagePath = "C:\\Users\\Admin\\IdeaProjects\\studyJDT\\src\\main\\java";
         return GetJsonObject.getPackageJSon(packagePath);
     }
 }
