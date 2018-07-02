@@ -67,7 +67,7 @@
 
         <input  style="margin-top: 20px;" type="file" name="file">
         </br>
-        <button type="submit" class="btn btn-info" style="margin-top: 10px;background-color: chocolate; width: 20%; height: 8%; font-size: large">Convert to UML diagram</button>
+        <button type="submit" action="/diagram" class="btn btn-info" style="margin-top: 10px;background-color: chocolate; width: 20%; height: 8%; font-size: large">Convert to UML diagram</button>
 
     </div>
 </center>

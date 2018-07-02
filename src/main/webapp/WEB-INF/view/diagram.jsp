@@ -300,7 +300,7 @@
             xmlhttp2.open("GET", "http://localhost:8080/relationship", false);
             xmlhttp2.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
-                    linkdata = JSON.parse(this.responseText);
+                    linkdata = JSON.parse(this.responseText).relationships;
 
 
                 }

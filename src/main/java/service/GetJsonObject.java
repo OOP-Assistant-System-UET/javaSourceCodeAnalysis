@@ -34,7 +34,7 @@ public class GetJsonObject {
         RelationshipList rl = new RelationshipList();
         rl.getRelationshipListInPackage(pp);
         Gson gson = new Gson();
-        String relationshipsJson = gson.toJson(rl.getRelationships());
+        String relationshipsJson = gson.toJson(rl);
 
         return relationshipsJson;
 
@@ -52,10 +52,7 @@ public class GetJsonObject {
 //        JSONArray jsonArray = new JSONArray();
 //        ParsePackage pp = gson.fromJson(packageJSon,ParsePackage.class);
 //        pp.printInfor();
-        try (PrintStream out = new PrintStream(new FileOutputStream("filename.txt"))) {
-            out.print(packageJSon);
 
-        }
         //Lay doi tuong RelationshipJson tu ParsePackage
 //        RelationshipList rl = new RelationshipList();
 //        rl.getRelationshipListInPackage(pp);

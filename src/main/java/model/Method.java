@@ -9,7 +9,6 @@ import org.eclipse.jdt.core.dom.Type;
 import java.util.List;
 
 public class Method {
-    @JsonProperty("abc")
     private String name;
 
     private String type;

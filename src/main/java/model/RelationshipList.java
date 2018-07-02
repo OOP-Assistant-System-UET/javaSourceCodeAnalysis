@@ -5,7 +5,7 @@ import service.ParsePackage;
 import java.util.ArrayList;
 
 public class RelationshipList {
-    private ArrayList<Relationship> relationships = new ArrayList<Relationship>();
+    public ArrayList<Relationship> relationships = new ArrayList<Relationship>();
 
     public ArrayList<Relationship> getRelationships() {
         return relationships;

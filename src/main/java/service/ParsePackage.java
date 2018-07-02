@@ -107,9 +107,10 @@ public class ParsePackage {
 
     public static void main(String[] args) throws IOException {
         ParsePackage p = new ParsePackage();
-        String packagePath = "C:\\Users\\Admin\\IdeaProjects\\studyJDT\\src\\main\\java";
+        String packagePath = "C:\\Users\\Nguyen Hieu\\IdeaProjects\\javaSourceCodeAnalysis\\src\\main\\java\\model";
         p.parseFilesInPackage(packagePath);
-        for (ClassDecration cd : p.classes) {
+        p.printInfor();
+        for (Relationship cd : p.relationships) {
             cd.printInfor();
         }
 
