@@ -1,6 +1,6 @@
 package spring;
 
-import service.PackageJson;
+import service.GetJsonObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,7 +16,7 @@ public class DiagramController {
     @ResponseBody
     public String response() throws IOException {
         String packagePath = "C:\\Users\\Nguyen Hieu\\IdeaProjects\\jlickr\\src\\main\\java\\com\\jcia\\jlickr\\dao";
-        return PackageJson.getPackageJSon(packagePath);
+        return GetJsonObject.getPackageJSon(packagePath);
     }
 }
 

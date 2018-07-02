@@ -24,6 +24,10 @@
     <servlet-name>spring</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>Servlet</servlet-name>
+    <servlet-class>servlets.UploadServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>spring</servlet-name>
     <url-pattern>/response</url-pattern>

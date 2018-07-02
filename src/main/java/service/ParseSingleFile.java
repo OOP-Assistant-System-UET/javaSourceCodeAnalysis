@@ -51,16 +51,20 @@ public class ParseSingleFile {
 
                 //lay visibility
                 cd.setPublic(false);
-                List <Modifier> modifiers = node.modifiers();
+                List modifiers = node.modifiers();
                 if (modifiers.size()==0) {
                     cd.setPublic(false);
                 }
                 else {
-                    for (Modifier o : modifiers) {
+                    for (Object o : modifiers) {
                         //System.out.println(o.getKeyword().toString());
-                        if (o.getKeyword().toFlagValue() == Modifier.ModifierKeyword.PUBLIC_KEYWORD.toFlagValue()) {
-                            cd.setPublic(true);
+                        if (o instanceof Modifier) {
+                            Modifier m = (Modifier) o;
+                            if (m.getKeyword().toFlagValue() == Modifier.ModifierKeyword.PUBLIC_KEYWORD.toFlagValue()) {
+                                cd.setPublic(true);
+                            }
                         }
+
                     }
                 }
 
