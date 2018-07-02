@@ -261,23 +261,51 @@
                     ]
                 }
             ];*/
-            var request = new XMLHttpRequest();
+            /*var request1 = new XMLHttpRequest();
 
-            request.open('GET', 'node.json', true);
+            request1.open('GET', 'class.json', true);
             var nodedata = JSON.parse(this.response);
-            /*request.onload = function () {
+            /!*request.onload = function () {
 
                 nodedata = JSON.parse(this.response);
 
-            };*/
+            };*!/
 
-            request.send();
+            request1.send();
+            var request2 = new XMLHttpRequest();
 
-            var linkdata = [
+            request2.open('GET', 'relationship.json', true);
+            var linkdata = JSON.parse(this.response);
+            request2.send();*/
+
+            /*var linkdata = [
                 { from: 12, to: 11, relationship: "extends"},
                 { from: 13, to: 11, relationship: "extends" },
                 { from: 14, to: 13, relationship: "implements"}
-            ];
+            ];*/
+
+            var xmlhttp1 = new XMLHttpRequest();
+            var nodedata =[];
+            xmlhttp1.open("GET", "http://localhost:8080/class", false);
+            xmlhttp1.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    nodedata = JSON.parse(this.responseText).classes;
+
+
+                }
+            };
+            xmlhttp1.send();
+            var linkdata = [];
+            var xmlhttp2 = new XMLHttpRequest();
+            xmlhttp2.open("GET", "http://localhost:8080/relationship", false);
+            xmlhttp2.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    linkdata = JSON.parse(this.responseText);
+
+
+                }
+            };
+            xmlhttp2.send();
             myDiagram.model = $(go.GraphLinksModel,
                 {
                     copiesArrays: true,
@@ -292,7 +320,10 @@
 <body onload="init()">
 <div id="myDiagramDiv" style="border: solid 1px black; width:100%; height:600px"></div>
 
-
+<%--<a href="relationship">relationship</a>
+<a href="class">class</a>--%>
+<%--<p>${classes}
+${relationship}</p>--%>
 
 </body>
 </html>

@@ -13,9 +13,19 @@ import static service.FileService.readFileToString;
 public class ParsePackage {
 
     public ArrayList<ClassDecration> classes;
+    private ArrayList<Relationship> relationships;
 
-    ParsePackage() {
+    public ParsePackage() {
         this.classes = new ArrayList<ClassDecration>();
+        this.relationships = new ArrayList<Relationship>();
+    }
+
+    public ArrayList<Relationship> getRelationships() {
+        return relationships;
+    }
+
+    public void setRelationships(ArrayList<Relationship> relationships) {
+        this.relationships = relationships;
     }
 
     public void parseFilesInPackage(String packagePath) throws IOException {
@@ -37,6 +47,7 @@ public class ParsePackage {
                 }
             }
         }
+//        this.relationships = setupRelationships();
     }
     //thiet lap cac relationship tu cac class
     public ArrayList<Relationship> setupRelationships() {
@@ -70,7 +81,6 @@ public class ParsePackage {
                 }
             }
         }
-        //this.setRelationships(relationshipList);
         return relationshipList;
     }
 

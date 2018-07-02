@@ -36,7 +36,7 @@ public class ParseSingleFile {
 
     int count = 0;
     public void parseFile (String str) {
-        ASTParser parser = ASTParser.newParser(AST.JLS3);
+        ASTParser parser = ASTParser.newParser(AST.JLS8);
         parser.setSource(str.toCharArray());
         parser.setKind(ASTParser.K_COMPILATION_UNIT);
         final CompilationUnit cu = (CompilationUnit) parser.createAST(null);
