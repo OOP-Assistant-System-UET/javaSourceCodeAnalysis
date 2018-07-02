@@ -6,18 +6,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81ee5dba-39d9-4bda-931e-8c4754b5bb85" name="Default" comment="add requestMapping spring + API + anotation">
+    <list default="true" id="81ee5dba-39d9-4bda-931e-8c4754b5bb85" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Method.java" afterPath="$PROJECT_DIR$/src/main/java/model/Method.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/RelationshipList.java" afterPath="$PROJECT_DIR$/src/main/java/model/RelationshipList.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/GetJsonObject.java" afterPath="$PROJECT_DIR$/src/main/java/service/GetJsonObject.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/ParsePackage.java" afterPath="$PROJECT_DIR$/src/main/java/service/ParsePackage.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/spring/DemoApplication.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/spring/DiagramController.java" afterPath="$PROJECT_DIR$/src/main/java/spring/DiagramController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/diagram.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/diagram.jsp" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/home.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/home.jsp" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index.jsp" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -78,7 +68,7 @@
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="245">
-              <caret line="10" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -613,7 +603,7 @@
       <workItem from="1530368868763" duration="5823000" />
       <workItem from="1530445994262" duration="8745000" />
       <workItem from="1530463017062" duration="15873000" />
-      <workItem from="1530497676981" duration="11974000" />
+      <workItem from="1530497676981" duration="12067000" />
     </task>
     <task id="LOCAL-00001" summary="add json">
       <created>1530454622451</created>
@@ -629,11 +619,18 @@
       <option name="project" value="LOCAL" />
       <updated>1530505360951</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add requestMapping spring + API + anotation">
+      <created>1530513670114</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1530513670118</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45732000" />
+    <option name="totallyTimeSpent" value="45825000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
@@ -1073,7 +1070,7 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="245">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
       </provider>
