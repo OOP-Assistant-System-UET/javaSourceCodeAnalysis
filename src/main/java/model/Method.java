@@ -1,5 +1,6 @@
 package model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.Modifier;
 import org.eclipse.jdt.core.dom.SimpleType;
@@ -8,7 +9,9 @@ import org.eclipse.jdt.core.dom.Type;
 import java.util.List;
 
 public class Method {
+    @JsonProperty("abc")
     private String name;
+
     private String type;
     private String visibility;
 

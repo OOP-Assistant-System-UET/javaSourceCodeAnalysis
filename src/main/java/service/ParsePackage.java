@@ -15,7 +15,7 @@ public class ParsePackage {
     public ArrayList<ClassDecration> classes;
     private ArrayList<Relationship> relationships;
 
-    ParsePackage() {
+    public ParsePackage() {
         this.classes = new ArrayList<ClassDecration>();
         this.relationships = new ArrayList<Relationship>();
     }
@@ -47,7 +47,7 @@ public class ParsePackage {
                 }
             }
         }
-        this.relationships = setupRelationships();
+//        this.relationships = setupRelationships();
     }
     //thiet lap cac relationship tu cac class
     public ArrayList<Relationship> setupRelationships() {
