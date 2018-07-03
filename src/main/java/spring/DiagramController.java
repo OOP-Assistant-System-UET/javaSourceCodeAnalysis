@@ -12,10 +12,17 @@ import java.io.IOException;
 @Controller
 public class DiagramController {
 
-    @RequestMapping(value = "/diagram", method = RequestMethod.GET)
-    public String getDiagram() {
+    @RequestMapping(value = "/class_diagram", method = RequestMethod.GET)
+    public String diagram() {
         return "diagram";
     }
+
+    @RequestMapping(value = "/redirect_page", method = RequestMethod.POST)
+    public String redirect() {
+        System.out.println("Redirecting Result To The Final Page");
+        return "redirect:class_diagram";
+    }
+
 
     @RequestMapping(value="/class",  method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
@@ -25,10 +32,9 @@ public class DiagramController {
         pp.parseFilesInPackage(packagePath);
         return new ResponseEntity<>(pp, HttpStatus.OK);
     }
+
     @RequestMapping(value="/relationship",  method = RequestMethod.GET, produces = "application/json")
-
     @ResponseBody
-
     public ResponseEntity<RelationshipList> responseRela() throws IOException {
         String packagePath = "C:\\Users\\Nguyen Hieu\\IdeaProjects\\javaSourceCodeAnalysis\\src\\main\\java\\model";
         ParsePackage pp = new ParsePackage();

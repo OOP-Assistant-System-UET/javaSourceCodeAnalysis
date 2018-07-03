@@ -201,88 +201,6 @@
                         new go.Binding("toArrow", "relationship", convertToArrow))
                 );
 
-            // setup a few example class nodes and relationships
-            /*var nodedata = [
-                {
-                    key: 1,
-                    name: "BankAccount",scope:"interface",
-                    properties: [
-                        { name: "owner", type: "String", visibility: "public" },
-                        { name: "balance", type: "Currency", visibility: "public", default: "0" }
-                    ],
-                    methods: [
-                        { name: "deposit", parameters: [{ name: "amount", type: "Currency" }], visibility: "public" },
-                        { name: "withdraw", parameters: [{ name: "amount", type: "Currency" }], visibility: "public" }
-                    ]
-                },
-                {
-                    key: 11,
-                    name: "Person",
-                    properties: [
-                        { name: "name", type: "String", visibility: "public" },
-                        { name: "birth", type: "Date", visibility: "protected" }
-                    ],
-                    methods: [
-                        { name: "getCurrentAge", type: "int", visibility: "public" }
-                    ]
-                },
-                {
-                    key: 12,
-                    name: "Student",
-                    properties: [
-                        { name: "classes", type: "List", visibility: "public" }
-                    ],
-                    methods: [
-                        { name: "attend", parameters: [{ name: "class", type: "Course" }], visibility: "private" },
-                        { name: "sleep", visibility: "private" }
-                    ]
-                },
-                {
-                    key: 13,
-                    name: "Professor",
-                    properties: [
-                        { name: "classes", type: "List", visibility: "public" }
-                    ],
-                    methods: [
-                        { name: "teach", parameters: [{ name: "class", type: "Course" }], visibility: "private" }
-                    ]
-                },
-                {
-                    key: 14,
-                    name: "Course",
-                    properties: [
-                        { name: "name", type: "String", visibility: "public" },
-                        { name: "description", type: "String", visibility: "public" },
-                        { name: "professor", type: "Professor", visibility: "public" },
-                        { name: "location", type: "String", visibility: "public" },
-                        { name: "times", type: "List", visibility: "public" },
-                        { name: "prerequisites", type: "List", visibility: "public" },
-                        { name: "students", type: "List", visibility: "public" }
-                    ]
-                }
-            ];*/
-            /*var request1 = new XMLHttpRequest();
-
-            request1.open('GET', 'class.json', true);
-            var nodedata = JSON.parse(this.response);
-            /!*request.onload = function () {
-
-                nodedata = JSON.parse(this.response);
-
-            };*!/
-
-            request1.send();
-            var request2 = new XMLHttpRequest();
-
-            request2.open('GET', 'relationship.json', true);
-            var linkdata = JSON.parse(this.response);
-            request2.send();*/
-
-            /*var linkdata = [
-                { from: 12, to: 11, relationship: "extends"},
-                { from: 13, to: 11, relationship: "extends" },
-                { from: 14, to: 13, relationship: "implements"}
-            ];*/
 
             var xmlhttp1 = new XMLHttpRequest();
             var nodedata =[];
@@ -314,11 +232,38 @@
                     linkDataArray: linkdata
                 });
         }
-    </script>
 
+    </script>
+    <style>
+        .loader {
+            margin-top:200px;
+            border: 10px solid #f3f3f3;
+            border-radius: 120%;
+            border-top: 10px solid brown;
+            width: 60px;
+            height: 60px;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 1s linear infinite;
+        }
+
+        @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body onload="init()">
-<div id="myDiagramDiv" style="border: solid 1px black; width:100%; height:600px"></div>
+<center>
+    <div id="myDiagramDiv" style="border: solid 1px black; width:100%; height:600px">
+        <div class="loader"></div>
+    </div>
+</center>
+
 
 <%--<a href="relationship">relationship</a>
 <a href="class">class</a>--%>
