@@ -1,10 +1,17 @@
 package model;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 import service.ParsePackage;
 
 import java.util.ArrayList;
 
+@Component
+@Scope("session")
 public class RelationshipList {
+
+    public RelationshipList() {}
+
     public ArrayList<Relationship> relationships = new ArrayList<Relationship>();
 
     public ArrayList<Relationship> getRelationships() {
@@ -31,10 +38,6 @@ public class RelationshipList {
         }
 
     }
-
-
-
-
 
 
 }
