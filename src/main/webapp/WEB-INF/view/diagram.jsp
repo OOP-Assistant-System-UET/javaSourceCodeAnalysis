@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Diagram</title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gojs/1.8.22/go-debug.js"></script>
     <script type="text/javascript">
         function init() {
@@ -231,15 +232,16 @@
                     nodeDataArray: nodedata,
                     linkDataArray: linkdata
                 });
+
         }
 
     </script>
     <style>
         .loader {
-            margin-top:200px;
+            margin-top:20px;
             border: 10px solid #f3f3f3;
             border-radius: 120%;
-            border-top: 10px solid brown;
+            border-top: 10px solid chocolate;
             width: 60px;
             height: 60px;
             -webkit-animation: spin 2s linear infinite;
@@ -255,13 +257,25 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+         .overlay {
+             fill: none;
+             pointer-events: all;
+         }
+        button {
+            padding: 10px 20px;
+        }
     </style>
 </head>
 <body onload="init()">
 <center>
     <div id="myDiagramDiv" style="border: solid 1px black; width:100%; height:600px">
+        <div style="color: gray;padding-top: 180px">Please waiting for ...</div>
         <div class="loader"></div>
+        <svg id="map" width="960" height="450"></svg>
     </div>
+    <button id="zoomIn" onclick="zoomIn()">Zoom In</button>
+    <button id="zoomOut" onclick="zoomOut()">Zoom Out</button>
 </center>
 
 

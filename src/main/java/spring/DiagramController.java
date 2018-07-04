@@ -11,7 +11,7 @@ import java.io.IOException;
 
 @Controller
 public class DiagramController {
-
+    String path = Unzip.getPathToFolder();
     @RequestMapping(value = "/class_diagram", method = RequestMethod.GET)
     public String diagram() {
         return "diagram";
@@ -20,14 +20,14 @@ public class DiagramController {
     @RequestMapping(value = "/redirect_page", method = RequestMethod.POST)
     public String redirect() {
         System.out.println("Redirecting Result To The Final Page");
-        return "redirect:class_diagram";
+        return "redirect:upload_servlet";
     }
 
 
     @RequestMapping(value="/class",  method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public ResponseEntity<ParsePackage> response() throws IOException {
-        String packagePath = "C:\\Users\\Nguyen Hieu\\IdeaProjects\\javaSourceCodeAnalysis\\src\\main\\java\\model";
+        String packagePath = path;
         ParsePackage pp = new ParsePackage();
         pp.parseFilesInPackage(packagePath);
         return new ResponseEntity<>(pp, HttpStatus.OK);
@@ -36,7 +36,7 @@ public class DiagramController {
     @RequestMapping(value="/relationship",  method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public ResponseEntity<RelationshipList> responseRela() throws IOException {
-        String packagePath = "C:\\Users\\Nguyen Hieu\\IdeaProjects\\javaSourceCodeAnalysis\\src\\main\\java\\model";
+        String packagePath = path;
         ParsePackage pp = new ParsePackage();
         pp.parseFilesInPackage(packagePath);
         RelationshipList rl = new RelationshipList();
