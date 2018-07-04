@@ -1,3 +1,10 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: TuanAnh
+  Date: 7/4/2018
+  Time: 12:14 AM
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
@@ -61,24 +68,11 @@
     <div style="background-image: url(/images/7HHe8xr.jpg);  background-repeat: no-repeat;height: 600px; width: 85%;text-indent:10px;">
         <img src="/images/17217074-render-of-gears-and-the-text-java.jpg" style="margin-top: 100px" alt="java">
         <h1 style="font-family: fantasy; font-size: 70px; color: white; padding-top: 10px;text-align: center">Select file java source:</h1>
-        <form method="post" action="${pageContext.request.contextPath}/upload"  enctype="multipart/form-data">
+        <form:form method="post" action="redirect_page">
 
-            Select file to upload:
-            <br />
-            <input type="file" style="margin-top: 20px" name="file"  />
-            <%--<br />--%>
-            <%--Description:--%>
-            <%--<br />--%>
-            <%--&lt;%&ndash;<input type="text" style="margin-top: 20px" name="description" size="100" />&ndash;%&gt;--%>
-            <%--<br />--%>
-            <br />
-            <input type="submit" style="margin-top: 20px"  value="Upload" />
-        </form>
-        <%--<form:form method="post" action="redirect_page">--%>
-
-            <%--</br>--%>
-            <%--<button type="submit" class="btn btn-info" style="margin-top: 10px;background-color: chocolate; width: 25%; height: 8%; font-size: large">Convert to UML diagram</button>--%>
-        <%--</form:form>--%>
+        </br>
+        <button type="submit" class="btn btn-info" style="margin-top: 10px;background-color: chocolate; width: 25%; height: 8%; font-size: large">Convert to UML diagram</button>
+        </form:form>
     </div>
 </center>
 </body>

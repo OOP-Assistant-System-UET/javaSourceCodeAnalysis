@@ -2,6 +2,8 @@ package service;
 
 import model.ClassDecration;
 import model.Relationship;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,6 +12,8 @@ import java.util.ArrayList;
 
 import static service.FileService.readFileToString;
 
+@Component
+@Scope("session")
 public class ParsePackage {
 
     public ArrayList<ClassDecration> classes;
