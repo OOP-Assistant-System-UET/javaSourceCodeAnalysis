@@ -40,16 +40,27 @@ public class ParseSingleFile {
         parser.setSource(str.toCharArray());
         parser.setKind(ASTParser.K_COMPILATION_UNIT);
         final CompilationUnit cu = (CompilationUnit) parser.createAST(null);
+        PackageDeclaration pd = cu.getPackage();
+        List importDecration = cu.imports();
+
+        /*if (pd != null) {
+            Name name = pd.getName();
+            if (name instanceof SimpleName) {
+                SimpleName simpleName = (SimpleName) name;
+                packageName = simpleName.getIdentifier();
+            }
+        }*/
         cu.accept(new ASTVisitor() {
             public boolean visit(TypeDeclaration node) {
                 ClassDecration cd = new ClassDecration();
                 if (node.isInterface() == true) cd.setScope("interface");
                 else cd.setScope("class");
-
                 //lay ten
                 String name = node.getName().getIdentifier();
                 cd.setName(name);
-
+                PackageDeclaration packageDeclaration = cu.getPackage();
+                if (packageDeclaration != null) cd.setQualifierName(packageDeclaration.getName().getFullyQualifiedName()+"."+name);
+                else cd.setQualifierName(name);
                 //lay visibility
                 cd.setPublic(false);
                 List modifiers = node.modifiers();
@@ -78,9 +89,13 @@ public class ParseSingleFile {
 
                 //lay superClass
                 Type superClassType = node.getSuperclassType();
-                if (superClassType != null) {
-                    String superClassName = superClassType.toString();
-                    cd.setSuperClassName(superClassName);
+                if (superClassType != null && superClassType instanceof SimpleType) {
+                    SimpleType superSimpleClassType = (SimpleType) superClassType;
+                    Name superClassName = superSimpleClassType.getName();
+                    String fullname = GetFullQualifierName.getQualifierName(superClassName,cu);
+                    //String superClassName = superClassType.toString();
+                    //cd.setSuperClassName(superClassName);
+                    cd.setSuperClassName(fullname);
                 }
 
                 //lay danh sach cac superInterface
@@ -91,7 +106,15 @@ public class ParseSingleFile {
                         if (o instanceof SimpleType) {
                             SimpleType temp = (SimpleType) o;
                             Name interfaceName = temp.getName();
-                            interfaceNameList.add(interfaceName.toString());
+                            String fullInterfaceName = GetFullQualifierName.getQualifierName(interfaceName,cu);
+                            interfaceNameList.add(fullInterfaceName);
+                            /*if (interfaceName instanceof QualifiedName) {
+                                interfaceNameList.add(interfaceName.getFullyQualifiedName());
+                            }
+                            else if (interfaceName instanceof SimpleName) {
+                                interfaceNameList.add(interfaceName.toString());
+                            }*/
+
                         }
                     }
                     cd.setSuperInterfaceName(interfaceNameList);

@@ -14,6 +14,7 @@ public class ParsePackage {
 
     public ArrayList<ClassDecration> classes;
     private ArrayList<Relationship> relationships;
+    private int numberClass = 0;
 
     public ParsePackage() {
         this.classes = new ArrayList<ClassDecration>();
@@ -33,21 +34,26 @@ public class ParsePackage {
         //System.out.println(rootDir.listFiles());
         File[] files = root.listFiles ();
         String filePath = null;
-        int num = 0;
         for (File f : files ) {
             filePath = f.getAbsolutePath();
+            System.out.println(filePath);
 
-            if(f.isFile()){
-                ParseSingleFile parseSingleFile = new ParseSingleFile();
-                parseSingleFile.parseFile(readFileToString(filePath));
-                for (ClassDecration cd : parseSingleFile.getListClasses()) {
-                    cd.setKey(num);
-                    this.classes.add(cd);
-                    num ++;
+            if(f.isDirectory()){
+                parseFilesInPackage(filePath);
+            }
+            else if (f.isFile()) {
+                if (f.getName().endsWith(".java")) {
+                    ParseSingleFile parseSingleFile = new ParseSingleFile();
+                    parseSingleFile.parseFile(readFileToString(filePath));
+                    for (ClassDecration cd : parseSingleFile.getListClasses()) {
+                        cd.setKey(numberClass);
+                        this.classes.add(cd);
+                        numberClass++;
+                    }
                 }
+
             }
         }
-        this.relationships = setupRelationships();
     }
     //thiet lap cac relationship tu cac class
     public ArrayList<Relationship> setupRelationships() {
@@ -55,7 +61,7 @@ public class ParsePackage {
         for (ClassDecration cd : this.classes) {
             //lay relationship kieu extend;
             if (cd.getSuperClassName() != null) {
-                int keySuperClass = this.findKeyByName(cd.getSuperClassName());
+                int keySuperClass = this.findKeyByQualifierName(cd.getSuperClassName());
                 if (keySuperClass != -1) {
                     Relationship r = new Relationship();
                     r.setFrom(cd.getKey());
@@ -69,7 +75,7 @@ public class ParsePackage {
             //lay relationship kieu implements;
             if (!cd.getSuperInterfaceName().isEmpty()) {
                 for (String s : cd.getSuperInterfaceName()) {
-                    int keySuperInterface = this.findKeyByName(s);
+                    int keySuperInterface = this.findKeyByQualifierName(s);
                     if (keySuperInterface != -1) {
                         Relationship r = new Relationship();
                         r.setFrom(cd.getKey());
@@ -81,6 +87,7 @@ public class ParsePackage {
                 }
             }
         }
+        this.relationships = relationshipList;
         return relationshipList;
     }
 
@@ -88,6 +95,16 @@ public class ParsePackage {
         if (this.classes.size() > 0) {
             for (ClassDecration cd : this.classes) {
                 if (name.equals(cd.getName())) return cd.getKey();
+            }
+            return -1;
+        }
+        return -1;
+    }
+
+    public int findKeyByQualifierName(String name) {
+        if (this.classes.size() > 0) {
+            for (ClassDecration cd : this.classes) {
+                if (name.equals(cd.getQualifierName())) return cd.getKey();
             }
             return -1;
         }
@@ -107,7 +124,7 @@ public class ParsePackage {
 
     public static void main(String[] args) throws IOException {
         ParsePackage p = new ParsePackage();
-        String packagePath = "C:\\Users\\Admin\\IdeaProjects\\studyJDT\\src\\main\\java";
+        String packagePath = "C:\\Users\\Admin\\IdeaProjects\\javaSourceCodeAnalysis\\src\\main\\java\\service";
         p.parseFilesInPackage(packagePath);
         p.printInfor();
         for (Relationship cd : p.relationships) {

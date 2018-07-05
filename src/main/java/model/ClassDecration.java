@@ -4,6 +4,7 @@ import model.Method;
 import model.Property;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
+import org.eclipse.jdt.core.dom.PackageDeclaration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,7 @@ public class ClassDecration{
     private ArrayList<Method> methods ;
     private String superClassName;
     private ArrayList<String> superInterfaceName;
+    private String qualifierName;
     public ClassDecration() {
         key = -1;
         name = "empty";
@@ -25,6 +27,14 @@ public class ClassDecration{
         methods = new ArrayList<Method>();
         visibilities = new ArrayList<String>();
         superInterfaceName = new ArrayList<String>();
+    }
+
+    public String getQualifierName() {
+        return qualifierName;
+    }
+
+    public void setQualifierName(String qualifierName) {
+        this.qualifierName = qualifierName;
     }
 
     public String getSuperClassName() {
@@ -116,6 +126,7 @@ public class ClassDecration{
             this.methods.add(method);
         }
     }
+
     public void printInfor() {
         /*System.out.println("Class: " + getName() + "  Public: " + isPublic +"Key: " + key);
         for (int i = 0; i < properties.size(); i++) {
@@ -124,7 +135,7 @@ public class ClassDecration{
         for (int i = 0; i < methods.size(); i++) {
             this.methods.get(i).printInfor();
         }*/
-        System.out.println("className: " + this.name + "  Key: " + this.key);
+        System.out.println("className: " + this.name + "  Key: " + this.key + " QualifierName: " + qualifierName);
         if (this.superClassName != null) {
             System.out.println("extend: " + this.superClassName);
         }
