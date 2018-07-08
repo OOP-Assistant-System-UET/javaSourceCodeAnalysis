@@ -1,8 +1,7 @@
-package spring;
+package Controller;
 
 import model.RelationshipList;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +15,6 @@ import java.io.File;
 import java.io.IOException;
 
 @Controller
-@Scope("session")
 public class UploadFileController {
 
     @Autowired
@@ -46,6 +44,7 @@ public class UploadFileController {
         System.out.println(file.getOriginalFilename());
         pathToFolder = pathToFolder.replace("/", File.separator);
         parsePackage.parseFilesInPackage(pathToFolder);
+        System.out.println(pathToFolder + "   tuananhhhhhh");
         rl.getRelationshipListInPackage(parsePackage);
         return "redirect:/class_diagram";
     }

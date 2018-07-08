@@ -7,7 +7,6 @@ import service.ParsePackage;
 import java.util.ArrayList;
 
 @Component
-@Scope("session")
 public class RelationshipList {
 
     public RelationshipList() {}

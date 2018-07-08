@@ -1,8 +1,7 @@
-package spring;
+package Controller;
 
 import model.RelationshipList;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -14,7 +13,6 @@ import service.ParsePackage;
 import java.io.IOException;
 
 @Controller
-@Scope("session")
 public class DiagramController {
 
     @Autowired
@@ -28,11 +26,11 @@ public class DiagramController {
         return "diagram";
     }
 
-    @RequestMapping(value = "/redirect_page", method = RequestMethod.POST)
-    public String redirect() {
-        System.out.println("Redirecting Result To The Final Page");
-        return "redirect:class_diagram";
-    }
+//    @RequestMapping(value = "/redirect_page", method = RequestMethod.POST)
+//    public String redirect() {
+//        System.out.println("Redirecting Result To The Final Page");
+//        return "redirect:class_diagram";
+//    }
 
 
     @RequestMapping(value="/class",  method = RequestMethod.GET, produces = "application/json")

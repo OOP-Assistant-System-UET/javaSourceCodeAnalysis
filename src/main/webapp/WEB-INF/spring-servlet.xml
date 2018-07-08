@@ -8,7 +8,7 @@
                            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <mvc:annotation-driven/>
-    <context:component-scan base-package="spring,service,model"/>
+    <context:component-scan base-package="Controller,service,model"/>
 
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

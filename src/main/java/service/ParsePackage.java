@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import static service.FileService.readFileToString;
 
 @Component
-@Scope("session")
 public class ParsePackage {
 
     public ArrayList<ClassDecration> classes;
