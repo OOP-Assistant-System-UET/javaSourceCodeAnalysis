@@ -1,20 +1,24 @@
-package Controller;
+package com.jsa.controller;
 
-import model.DatabaseManager;
+import com.jsa.service.DatabaseManager;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class LoginController {
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+
+    @Autowired
+    private DatabaseManager db;
+
+    @RequestMapping(value = "/home" +
+            "", method = RequestMethod.POST)
     public String login(@RequestParam("userName")String userName, @RequestParam("password")String password){
-        DatabaseManager db = new DatabaseManager();
         if(db.checkUser(userName, password)){
             System.out.println("tuananh a");
-            return "redirect: /home";
+            return "home";
         }
         else{
             System.out.println("tuan anh b");

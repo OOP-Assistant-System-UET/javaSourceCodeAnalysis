@@ -1,16 +1,14 @@
-package service;
+package com.jsa.service;
 
-import model.ClassDecration;
-import model.Relationship;
-import org.springframework.context.annotation.Scope;
+import com.jsa.model.ClassDecration;
+import com.jsa.model.Relationship;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-import static service.FileService.readFileToString;
+import static com.jsa.service.FileService.readFileToString;
 
 @Component
 public class ParsePackage {
@@ -127,7 +125,7 @@ public class ParsePackage {
 
     public static void main(String[] args) throws IOException {
         ParsePackage p = new ParsePackage();
-        String packagePath = "C:\\Users\\Admin\\IdeaProjects\\javaSourceCodeAnalysis\\src\\main\\java\\service";
+        String packagePath = "C:\\Users\\Admin\\IdeaProjects\\javaSourceCodeAnalysis\\src\\main\\java\\com.jsa.service";
         p.parseFilesInPackage(packagePath);
         p.printInfor();
         for (Relationship cd : p.relationships) {

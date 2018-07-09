@@ -1,6 +1,6 @@
-package Controller;
+package com.jsa.controller;
 
-import model.RelationshipList;
+import com.jsa.model.RelationshipList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import service.ParsePackage;
-import util.Unzip.Unzip;
+import com.jsa.service.ParsePackage;
+import com.jsa.Unzip.Unzip;
 
 import java.io.File;
 import java.io.IOException;

@@ -1,9 +1,7 @@
-package model;
+package com.jsa.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.Modifier;
-import org.eclipse.jdt.core.dom.SimpleType;
 import org.eclipse.jdt.core.dom.Type;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package service;
+package com.jsa.service;
 
 import org.eclipse.jdt.core.dom.*;
 

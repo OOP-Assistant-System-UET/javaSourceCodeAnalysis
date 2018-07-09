@@ -1,10 +1,7 @@
-package model;
+package com.jsa.model;
 
-import model.Method;
-import model.Property;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
-import org.eclipse.jdt.core.dom.PackageDeclaration;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,6 @@
-package service;
+package com.jsa.service;
 
-import model.ClassDecration;
+import com.jsa.model.ClassDecration;
 import org.eclipse.jdt.core.dom.*;
 
 import java.io.File;
@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static service.FileService.readFileToString;
+import static com.jsa.service.FileService.readFileToString;
 
 public class ParseSingleFile {
     private  ArrayList<ClassDecration> listClasses;

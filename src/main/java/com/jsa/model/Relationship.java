@@ -1,4 +1,4 @@
-package model;
+package com.jsa.model;
 
 public class Relationship {
     private int from;

@@ -1,4 +1,4 @@
-package model;
+package com.jsa.model;
 
 import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.Modifier;

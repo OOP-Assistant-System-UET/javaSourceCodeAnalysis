@@ -1,8 +1,7 @@
-package model;
+package com.jsa.model;
 
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-import service.ParsePackage;
+import com.jsa.service.ParsePackage;
 
 import java.util.ArrayList;
 

@@ -125,7 +125,7 @@
     </style>
 </head>
 <body>
-    <form method="post" action="${pageContext.request.contextPath}/login">
+    <form method="post" action="${pageContext.request.contextPath}/home">
         <div class="login">
             <input type = "text" placeholder="Username" name="userName" />
             <input type = "password" placeholder="Password" name="password"/>
