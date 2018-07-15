@@ -29,7 +29,7 @@
 <body onload="init()">
 <center>
     <div id="myDiagramDiv" style="border: solid 1px black; width:100%; height:600px">
-        <div class="loader"></div>
+        <div className="loader"></div>
     </div>
 </center>
 
@@ -234,7 +234,7 @@
 
         var xmlhttp1 = new XMLHttpRequest();
         var nodedata =[];
-        xmlhttp1.open("GET", "http://localhost:8080/class", false);
+        xmlhttp1.open("GET", "http://localhost:3000/classes", false);
         xmlhttp1.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 nodedata = JSON.parse(this.responseText).classes;
@@ -245,7 +245,7 @@
         xmlhttp1.send();
         var linkdata = [];
         var xmlhttp2 = new XMLHttpRequest();
-        xmlhttp2.open("GET", "http://localhost:8080/relationship", false);
+        xmlhttp2.open("GET", "http://localhost:3000/relationships", false);
         xmlhttp2.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 linkdata = JSON.parse(this.responseText).relationships;

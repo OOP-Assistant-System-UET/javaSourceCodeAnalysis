@@ -33,13 +33,13 @@ public class DiagramController {
 //    }
 
 
-    @RequestMapping(value="/class",  method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value="/classes",  method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public ResponseEntity<ParsePackage> response() throws IOException {
         return new ResponseEntity<>(parsePackage, HttpStatus.OK);
     }
 
-    @RequestMapping(value="/relationship",  method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value="/relationships",  method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public ResponseEntity<RelationshipList> responseRela() throws IOException {
         return new ResponseEntity<>(rl, HttpStatus.OK);
