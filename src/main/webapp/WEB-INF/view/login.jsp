@@ -125,9 +125,9 @@
     </style>
 </head>
 <body>
-    <form method="post" action="${pageContext.request.contextPath}/home">
+    <form name = "loginForm" method="post" action="<c:url value='j_spring_security_login'/>">
         <div class="login">
-            <input type = "text" placeholder="Username" name="userName" />
+            <input type = "text" placeholder="Username" name="username" />
             <input type = "password" placeholder="Password" name="password"/>
             <input type = "submit" value = "Login"/>
         </div>

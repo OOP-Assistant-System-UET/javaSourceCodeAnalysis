@@ -12,7 +12,20 @@ public class DatabaseManager {
     @Autowired
     private UserAccRepository userAccRepository;
 
+    private String userName;
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    private  String password;
     public boolean checkUser(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
         UserAccount userAccount = userAccRepository.findByUserName(userName);
         if(userAccount != null) {
             if (password.equals(userAccount.getPassword())) {
